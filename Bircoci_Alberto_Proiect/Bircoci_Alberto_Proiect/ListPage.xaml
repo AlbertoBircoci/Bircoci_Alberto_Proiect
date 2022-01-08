@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Bircoci_Alberto_Proiect.ListPage"
+             xmlns:local="clr-namespace:Bircoci_Alberto_Proiect" >
+  
+        <StackLayout Margin="20">
+            <Editor Placeholder="Introduceti detaliile prenotarii  " Text="{Binding Description}" HeightRequest="100" >
+                <Editor.Behaviors>
+                    <local:ValidationBehaviour />
+                </Editor.Behaviors>
+                </Editor>
+            <Button Text="Adaugare/alegere serviciu" Clicked="OnChooseButtonClicked"/>
+            <Button Text="Nume Client" Clicked="OnChooseButtonClicked"/>
+            <Button Text="Nume Angajat" Clicked="OnChooseButtonClicked"/>
+
+        <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Text="Save"
+Clicked="OnSaveButtonClicked" />
+                <Button Grid.Column="1"
+Text="Delete"
+Clicked="OnDeleteButtonClicked"/>
+                <ListView Grid.Row="1" Grid.ColumnSpan="2" x:Name="listView"
+Margin="20">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Detail="{Binding Description}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </StackLayout>
+
+</ContentPage>
